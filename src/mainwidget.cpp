@@ -95,13 +95,13 @@ void MainWidget::on_randCurve_clicked(bool checked)
         srand(time(NULL));
         randp.clear();
         randp.reserve(n);
-        int x=this->width()/-2;
+        int x = this->width()/-2;
         for(int i=1;i<=n;i++)
         {
             randp.append(QPointF(x,(rand()%(this->width()/4))*(rand()%2==0?1:-1)));
-            x+=50;
+            x += 50;
         }
-        kind=1;
+        kind = 1;
         this->update();
     }
 }
@@ -109,19 +109,19 @@ void MainWidget::on_randCurve_clicked(bool checked)
 void MainWidget::on_SinCurve_clicked(bool checked)
 {
     if(checked)
-        kind=2,this->update();
+        kind = 2, this->update();
 }
 
 void MainWidget::on_lnCurve_clicked(bool checked)
 {
     if(checked)
-        kind=3,this->update();
+        kind = 3, this->update();
 }
 
 void MainWidget::on_exCurve_clicked(bool checked)
 {
     if(checked)
-        kind=4,this->update();
+        kind = 4, this->update();
 }
 
 void MainWidget::on_chkbox_clicked(bool checked)
