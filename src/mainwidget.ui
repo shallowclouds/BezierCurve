@@ -6,63 +6,246 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>753</width>
-    <height>352</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWidget</string>
+   <string>贝塞尔曲线演示</string>
   </property>
-  <widget class="QWidget" name="gridLayoutWidget">
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+}
+
+QRadioButton, QCheckBox {
+    font-size: 14px;
+    padding: 5px;
+}
+
+QPushButton {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background-color: #2980b9;
+}
+
+QPushButton:pressed {
+    background-color: #1c6ea4;
+}
+
+QComboBox {
+    border: 1px solid #bdc3c7;
+    border-radius: 3px;
+    padding: 5px;
+    min-width: 6em;
+}
+
+QGroupBox {
+    font-weight: bold;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-top: 15px;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 10px;
+    padding: 0 5px;
+}</string>
+  </property>
+  <widget class="QWidget" name="controlPanel" native="true">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>121</width>
-     <height>106</height>
+     <width>200</width>
+     <height>600</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="grid1">
-    <item row="0" column="0">
-     <widget class="QRadioButton" name="randCurve">
+   <property name="styleSheet">
+    <string notr="true">background-color: #f5f5f5;
+border-right: 1px solid #e0e0e0;</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="titleLabel">
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei</family>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #2c3e50;
+padding: 10px;</string>
+      </property>
       <property name="text">
-       <string>随机曲线</string>
+       <string>贝塞尔曲线演示</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
-    <item row="3" column="0">
-     <widget class="QRadioButton" name="exCurve">
-      <property name="text">
-       <string>指数曲线</string>
+    <item>
+     <widget class="QGroupBox" name="curveTypeGroup">
+      <property name="title">
+       <string>曲线类型</string>
       </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QRadioButton" name="randCurve">
+         <property name="text">
+          <string>随机曲线</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="SinCurve">
+         <property name="text">
+          <string>正弦曲线</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="lnCurve">
+         <property name="text">
+          <string>对数曲线</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="exCurve">
+         <property name="text">
+          <string>指数曲线</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QRadioButton" name="SinCurve">
-      <property name="text">
-       <string>正弦曲线</string>
+    <item>
+     <widget class="QGroupBox" name="displayOptionsGroup">
+      <property name="title">
+       <string>显示选项</string>
       </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QCheckBox" name="chkbox">
+         <property name="text">
+          <string>平滑曲线</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="themeLabel">
+           <property name="text">
+            <string>主题：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="themeCombo">
+           <item>
+            <property name="text">
+             <string>默认</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>蓝色</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>绿色</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>红色</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>紫色</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </item>
-    <item row="2" column="0">
-     <widget class="QRadioButton" name="lnCurve">
-      <property name="text">
-       <string>对数曲线</string>
+    <item>
+     <widget class="QGroupBox" name="interactionGroup">
+      <property name="title">
+       <string>交互</string>
       </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QPushButton" name="animateBtn">
+         <property name="text">
+          <string>动画</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="resetZoomBtn">
+         <property name="text">
+          <string>重置缩放</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="gestureHintLabel">
+         <property name="styleSheet">
+          <string notr="true">color: #7f8c8d;
+font-size: 12px;</string>
+         </property>
+         <property name="text">
+          <string>提示：使用捏合手势缩放，滑动切换曲线</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
-    <item row="4" column="0">
-     <widget class="QCheckBox" name="chkbox">
-      <property name="enabled">
-       <bool>true</bool>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
       </property>
-      <property name="text">
-       <string>平滑曲线</string>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
       </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
+     </spacer>
     </item>
    </layout>
   </widget>
